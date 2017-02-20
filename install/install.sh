@@ -23,7 +23,9 @@ apt-get install -y \
     vim \
     vlc \
     git \
-    mercurial
+    mercurial \
+    pandoc \
+    texlive-full
 
 pip install --upgrade \
     pip \
@@ -44,4 +46,6 @@ pip install \
     sender \
     websocket-client
 
-pip install -U ipython[notebook]
+pip install -U jupyter
+
+# ToDo install TeXlive !!Pi B
