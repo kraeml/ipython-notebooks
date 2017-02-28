@@ -23,9 +23,9 @@ apt-get install -y \
     vim \
     vlc \
     git \
-    mercurial \
-    pandoc \
-    texlive-full
+    mercurial 
+    # pandoc \
+    # texlive-full
 
 pip install --upgrade \
     pip \
