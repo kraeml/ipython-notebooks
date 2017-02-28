@@ -7,7 +7,9 @@ apt-get install -y \
     python-setuptools \
     python-scipy \
     python-numpy \
-    python-pygame
+    python-pygame \
+    python3-pip \
+    python3
 
 easy_install pip
 
@@ -23,13 +25,17 @@ apt-get install -y \
     vim \
     vlc \
     git \
-    mercurial 
+    mercurial
     # pandoc \
     # texlive-full
 
 pip install --upgrade \
     pip \
-    virtualenv
+    virtualenv \
+    bash_kernel \
+    ipykernel
+
+pip3 install --upgrade ipykernel
 
 # Install notebook dependencies
 apt-get install -y \
@@ -44,8 +50,20 @@ pip install \
     pibrella \
     clickatell \
     sender \
-    websocket-client
+    websocket-client \
+    widgetsnbextension
 
-pip install -U jupyter
+pip3 install -U jupyter
 
-# ToDo install TeXlive !!Pi B
+su pi -c "jupyter notebook -y --generate-config"
+sed -i "s/^#c.NotebookApp.ip = 'localhost'/c.NotebookApp.ip = '*'/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.open_browser = True/c.NotebookApp.open_browser = False/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.token = '<generated>'/c.NotebookApp.token = ''/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.password = ''/c.NotebookApp.password = ''/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
+sed -i "s/^#c.NotebookApp.notebook_dir = u''/c.NotebookApp.notebook_dir = u'\/home\/pi'/g" /home/pi/.jupyter/jupyter_notebook_config.py
+python3 -m ipykernel install
+python -m ipykernel install
+python -m bash_kernel.install
+jupyter nbextension enable --py widgetsnbextension --sys-prefix
