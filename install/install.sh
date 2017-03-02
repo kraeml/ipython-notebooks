@@ -13,8 +13,7 @@ apt-get install -y \
     python3-dev \
     python3-setuptools \
     python3-scipy \
-    python3-numpy \
-    pyhton3-pygame
+    python3-numpy 
 
 easy_install pip
 
