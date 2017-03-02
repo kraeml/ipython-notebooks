@@ -43,6 +43,7 @@ pip3 install --upgrade \
 
 python2 -m pip install ipykernel
 
+
 pip3 install --upgrade ipykernel
 
 # Install notebook dependencies
