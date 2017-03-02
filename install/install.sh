@@ -29,11 +29,12 @@ apt-get install -y \
     # pandoc \
     # texlive-full
 
-pip install --upgrade \
+pip3 install --upgrade \
     pip \
     virtualenv \
     bash_kernel \
-    ipykernel
+    ipykernel \
+    ipywidgets
 
 pip3 install --upgrade ipykernel
 
@@ -42,7 +43,7 @@ apt-get install -y \
     espeak \
     python-espeak
 
-pip install \
+pip3 install \
     picamera \
     rpi.gpio \
     requests \
@@ -64,6 +65,6 @@ sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jup
 sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
 sed -i "s/^#c.NotebookApp.notebook_dir = u''/c.NotebookApp.notebook_dir = u'\/home\/pi'/g" /home/pi/.jupyter/jupyter_notebook_config.py
 python3 -m ipykernel install
-python -m ipykernel install
-python -m bash_kernel.install
+python3 -m ipykernel install
+python3 -m bash_kernel.install
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
