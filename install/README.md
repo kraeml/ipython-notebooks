@@ -6,6 +6,13 @@ Start from default Raspbian image:
 - copy to SD card
 - login to shell
 
+May you have to install git
+
+```shell
+sudo apt-get update
+sudo apt-get install --yes git
+```
+
 ```shell
 cd ~
 git clone https://github.com/kraeml/ipython-notebooks.git
