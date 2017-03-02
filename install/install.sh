@@ -36,6 +36,10 @@ pip3 install --upgrade \
     ipykernel \
     ipywidgets
 
+pip install --upgrade \
+    ipykernel \
+    bash_kernel
+
 pip3 install --upgrade ipykernel
 
 # Install notebook dependencies
@@ -65,6 +69,6 @@ sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jup
 sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
 sed -i "s/^#c.NotebookApp.notebook_dir = u''/c.NotebookApp.notebook_dir = u'\/home\/pi'/g" /home/pi/.jupyter/jupyter_notebook_config.py
 python3 -m ipykernel install
-python3 -m ipykernel install
+python2 -m ipykernel install
 python3 -m bash_kernel.install
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
