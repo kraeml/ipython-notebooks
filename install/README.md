@@ -28,4 +28,10 @@ cd ~/ipython-notebooks/notebooks
 jupyter-notebook -y --port=8888 --notebook-dir=/home/pi --ip=0.0.0.0 --no-browser
 ```
 
+Or simpler:
+
+```shell
+jupyter-notebook
+```
+
 In a browser open <http://pi-ip:8888/tree>
