@@ -8,12 +8,11 @@ apt-get install -y \
     python-scipy \
     python-numpy \
     python-pygame \
-    python3-pip \
     python3 \
     python3-dev \
     python3-setuptools \
     python3-scipy \
-    python3-numpy 
+    python3-numpy
 
 easy_install pip
 
@@ -29,11 +28,12 @@ apt-get install -y \
     vim \
     vlc \
     git \
-    mercurial
-    # pandoc \
+    mercurial \
+    pandoc \
     # texlive-full
 
-pip3 install --upgrade \
+python3 -m pip install --upgrade \
+    pip \
     virtualenv \
     bash_kernel \
     ipykernel \
@@ -41,15 +41,12 @@ pip3 install --upgrade \
 
 python2 -m pip install ipykernel
 
-
-pip3 install --upgrade ipykernel
-
 # Install notebook dependencies
 apt-get install -y \
     espeak \
     python-espeak
 
-pip3 install \
+python3 -m pip install \
     picamera \
     rpi.gpio \
     requests \
@@ -60,7 +57,7 @@ pip3 install \
     websocket-client \
     widgetsnbextension
 
-pip3 install -U jupyter
+python3 -m pip install -U jupyter
 
 su pi -c "jupyter notebook -y --generate-config"
 sed -i "s/^#c.NotebookApp.ip = 'localhost'/c.NotebookApp.ip = '*'/g" /home/pi/.jupyter/jupyter_notebook_config.py
