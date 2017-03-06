@@ -34,7 +34,6 @@ apt-get install -y \
     # texlive-full
 
 pip3 install --upgrade \
-    pip \
     virtualenv \
     bash_kernel \
     ipykernel \
