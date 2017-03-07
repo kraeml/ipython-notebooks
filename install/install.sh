@@ -9,7 +9,7 @@ apt-get install -y \
     python-numpy \
     python-pygame \
     python3 \
-    pyhton3-pip \
+    python3-pip \
     python3-dev \
     python3-setuptools \
     python3-scipy \
