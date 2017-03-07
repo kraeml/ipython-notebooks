@@ -9,6 +9,7 @@ apt-get install -y \
     python-numpy \
     python-pygame \
     python3 \
+    pyhton3-pip \
     python3-dev \
     python3-setuptools \
     python3-scipy \
@@ -32,21 +33,19 @@ apt-get install -y \
     pandoc \
     # texlive-full
 
-python3 -m pip install --upgrade \
+pip install --upgrade \
     pip \
     virtualenv \
     bash_kernel \
     ipykernel \
     ipywidgets
 
-python2 -m pip install ipykernel
-
 # Install notebook dependencies
 apt-get install -y \
     espeak \
     python-espeak
 
-python3 -m pip install \
+pip install \
     picamera \
     rpi.gpio \
     requests \
@@ -57,7 +56,8 @@ python3 -m pip install \
     websocket-client \
     widgetsnbextension
 
-python3 -m pip install -U jupyter
+pip install -U jupyter
+pip3 install --upgrade ipykernel
 
 su pi -c "jupyter notebook -y --generate-config"
 sed -i "s/^#c.NotebookApp.ip = 'localhost'/c.NotebookApp.ip = '*'/g" /home/pi/.jupyter/jupyter_notebook_config.py
@@ -67,7 +67,7 @@ sed -i "s/^#c.NotebookApp.password = ''/c.NotebookApp.password = ''/g" /home/pi/
 sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
 sed -i "s/^#c.NotebookApp.port = 8888/c.NotebookApp.port = 8888/g" /home/pi/.jupyter/jupyter_notebook_config.py
 sed -i "s/^#c.NotebookApp.notebook_dir = u''/c.NotebookApp.notebook_dir = u'\/home\/pi'/g" /home/pi/.jupyter/jupyter_notebook_config.py
-python3 -m ipykernel install
 python2 -m ipykernel install
-python3 -m bash_kernel.install
+python3 -m ipykernel install
+python2 -m bash_kernel.install
 jupyter nbextension enable --py widgetsnbextension --sys-prefix
